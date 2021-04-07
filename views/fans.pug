@@ -23,11 +23,13 @@ block content
                         "price": "120"
                     },                   
                 ]
-            each f in fans 
-                div(class="col-sm-2") #{f.CompanyName}
-                br
+            each f, index in fans 
+                div(class="col-sm-2" onclick=`buy(${index})`) #{f.CompanyName}
                 br 
-                div(class="col-sm-2") #{f.Type}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{f.Type}
                 br
-                div(class="col-sm-2") #{f.price}
-  
+                div(class="col-sm-2" onclick=`buy(${index})`) #{f.price}
+            script.
+                function buy(itemNo){
+                    alert(`You purchased Item ${itemNo+1}`)
+                }  

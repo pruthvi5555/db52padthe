@@ -9,7 +9,6 @@ var usersRouter = require('./routes/users');
 var fansRouter = require('./routes/fans');
 var starsRouter = require('./routes/stars');
 var slotRouter = require('./routes/slot');
-var laptopsRouter = require('./routes/laptops');
 
 var app = express();
 
@@ -28,7 +27,6 @@ app.use('/users', usersRouter);
 app.use('/fans', fansRouter);
 app.use('/stars', starsRouter);
 app.use('/slot', slotRouter);
-app.use('/laptops', laptopsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
