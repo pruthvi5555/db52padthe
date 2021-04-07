@@ -6,23 +6,7 @@ block content
    div(class="container-fluid")
         div(class="row")
             -
-                let fans = [
-                    {
-                        "CompanyName": "Bajaj",
-                        "Type": "ceiling",
-                        "price": "60"                        
-                    },
-                    {
-                        "CompanyName": "Crompton",
-                        "Type": "Table",
-                        "price": "100"
-                    },
-                    {
-                        "CompanyName": "Havells",
-                        "Type": "Tower fan",
-                        "price": "120"
-                    },                   
-                ]
+                let fans =results 
             each f, index in fans 
                 div(class="col-sm-2" onclick=`buy(${index})`) #{f.CompanyName}
                 br 
