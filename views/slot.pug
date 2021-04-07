@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+
+     - var image_names= ["nature1.jpg","nature2.jpg","nature3.jpg","nature4.jpg","nature5.jpg"]            
+            -for(var i=0;i<3;i++){
+                - var number=Math.floor(Math.random()*5)
+                 img(src= `/images/${image_names[number]}` alt="images of nature", height="300", width="300")
+            -}

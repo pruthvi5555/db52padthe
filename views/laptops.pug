@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  - let laptops  = [{laptopName:"dell",color:"red",price:"1000"},{laptopName:"lenovo",color:"black",price:"2000"},{laptopName:"apple",color:"white",price:"3000"}]
+  div(class="container-fluid mt-2")
+  div(class="row")
+    each laptop ,index in laptops 
+        div(class="col-sm-2 bg-success m-2 p-2" onclick=`buy(${index})`) #{laptop.laptopName} - #{laptop.color} - #{laptop.price}
+  script.
+    function buy(itemNo){
+      alert(`You purchased Item ${itemNo+1}`)
+    }

@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p The list of fans 
+   div(class="container-fluid")
+        div(class="row")
+            -
+                let fans = [
+                    {
+                        "CompanyName": "Bajaj",
+                        "Type": "ceiling",
+                        "price": "60"                        
+                    },
+                    {
+                        "CompanyName": "Crompton",
+                        "Type": "Table",
+                        "price": "100"
+                    },
+                    {
+                        "CompanyName": "Havells",
+                        "Type": "Tower fan",
+                        "price": "120"
+                    },                   
+                ]
+            each f in fans 
+                div(class="col-sm-2") #{f.CompanyName}
+                br
+                br 
+                div(class="col-sm-2") #{f.Type}
+                br
+                div(class="col-sm-2") #{f.price}
+  
