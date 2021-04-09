@@ -11,10 +11,24 @@ exports.fan_list = async function(req, res) {
     }
     }
 
-// for a specific fan.
-exports.fan_detail = function(req, res) {
-res.send('NOT IMPLEMENTED: fan detail: ' + req.params.id);
+// // for a specific fan.
+// exports.fan_detail = function(req, res) {
+// res.send('NOT IMPLEMENTED: fan detail: ' + req.params.id);
+// };
+
+// for a specific Fan.
+exports.fan_detail = async function(req, res) {
+    console.log("detail"  + req.params.id)
+    try {
+        result = await fan.findById(req.params.id)
+        res.send(result)
+    } catch (error) {
+        res.status(500)
+        res.send(`{"error": document for id ${req.params.id} not found`);
+    }
 };
+
+
 // Handle fan create on POST.
 exports.fan_create_post = async function(req, res) {
     console.log(req.body)
@@ -39,9 +53,26 @@ exports.fan_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: fan delete DELETE ' + req.params.id);
 };
 // Handle fan update form on PUT.
-exports.fan_update_put = function(req, res) {
-res.send('NOT IMPLEMENTED: fan update PUT' + req.params.id);
+exports.fan_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
+    try {
+        let toUpdate = await fan.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.CompanyName) toUpdate.CompanyName = req.body.CompanyName;
+        if(req.body.fanType) toUpdate.fanType = req.body.fanType;
+        if(req.body.price) toUpdate.price = req.body.price;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id} failed`);
+    }
 };
+
+
+
+
 // VIEWS
 // Handle a show all view
 exports.fan_view_all_Page = async function(req, res) {
