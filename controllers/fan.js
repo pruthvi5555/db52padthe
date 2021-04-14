@@ -49,9 +49,18 @@ exports.fan_create_post = async function(req, res) {
     }
     };
 // Handle fan delete form on DELETE.
-exports.fan_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: fan delete DELETE ' + req.params.id);
+exports.fan_delete = async function(req, res) {
+    console.log("delete "  + req.params.id)
+    try {
+        result = await fan.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
+
 // Handle fan update form on PUT.
 exports.fan_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
