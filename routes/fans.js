@@ -5,10 +5,13 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', fan_controlers.fan_view_all_Page ); 
 
-/* GET detail costume page */
+/* GET detail fan page */
 router.get('/detail', fan_controlers.fan_view_one_Page);
 
-/* GET create costume page */
+/* GET create fan page */
 router.get('/create', fan_controlers.fan_create_Page);
+
+/* GET create update page */
+router.get('/update', fan_controlers.fan_update_Page);
 
 module.exports = router;

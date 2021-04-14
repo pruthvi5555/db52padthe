@@ -120,3 +120,18 @@ exports.fan_create_Page =  function(req, res) {
         res.send(`{'error': '${err}'}`);
     }
 };
+
+// Handle building the view for updating a fan.
+// query provides the id
+exports.fan_update_Page =  async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+        let result = await fan.findById(req.query.id)
+        res.render('fanupdate', { title: 'Fan Update', toShow: result });
+    }
+    catch(err){
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
