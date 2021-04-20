@@ -1,5 +1,5 @@
 # db52padthe
-using mangodb as backend database
+using mongodb as backend database
 
 [Heroku Link](https://db52padthe.herokuapp.com/)
 

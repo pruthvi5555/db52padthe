@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  if (toShow == null)
+    h2 No instance to detail
+  else
+
+    - let fanid = toShow._id
+    - let CompanyName = toShow.CompanyName
+    - let fanType  = toShow.fanType 
+    - let price = toShow.price
+    div
+      div.row
+        div(class='fanAttr mr-3') fan ID is:
+        div #{fanid}
+      div.row
+        div(class='fanAttr mr-3') CompanyName is:
+        div #{CompanyName}
+      div.row
+        div(class='fanAttr mr-3') fanType is:
+        div #{fanType}
+      div.row
+        div(class='fanAttr mr-3') fan price is:
+        div #{price}
+
