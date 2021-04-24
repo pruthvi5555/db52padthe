@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  - let create = `dispatch(\"/fans/create\")`
-  button.btn(class="btn-primary mb-2" onclick=create) Add a fan
+  
+  
    h1= title
+   - let create = `dispatch(\"/fans/create\")`
+    button.btn(class="btn-primary mb-2" onclick=create) Add a fan
      
     div(class="container-fluid")
         div(class="row m-1")
